@@ -34,13 +34,17 @@ def _cleanCopy(inRange, outRange):
     outRange.font.size = inRange.font.size
 
 
-def cleanCopyExcel(fileName='input.xlsx', MAX_X=50, MAX_Y=1000):
+def cleanCopyExcel(fileName='input.xlsx', MAX_X=50, MAX_Y=1000, logF=None):
+    if logF is None:
+        logF = lambda _x: print(_x)
+
+    logF(fileName + ' 의 작업을 시작합니다.')
     app = xw.App(visible=False)
     book = xw.Book(fileName)
     oBook = xw.Book()
 
     for inSh in book.sheets:
-        print(inSh.name)
+        logF(str(inSh.name) + ' 시트의 작업을 시작합니다.')
         names = list(map(lambda sh: sh.name, oBook.sheets))
         if inSh.name in names:
             oSh = oBook.sheets[inSh.name]
@@ -51,6 +55,8 @@ def cleanCopyExcel(fileName='input.xlsx', MAX_X=50, MAX_Y=1000):
         cellValues = inSh.range((1, 1), (MAX_Y, MAX_X)).formula
         oSh.range((1, 1), (MAX_Y, MAX_X)).formula = cellValues
         for x in range(1, MAX_X + 1):
+            if x%10 == 0:
+                logF(str(x) + ' 번 째 세로줄 작업중입니다.')
             for y in range(1, MAX_Y + 1):
                 if cellValues[y - 1][x - 1] == '':
                     continue
