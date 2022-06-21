@@ -1,3 +1,5 @@
+import sys
+
 import xlwings as xw
 
 from MyCell import MyCell
@@ -32,27 +34,9 @@ def _cleanCopy(inRange, outRange):
     outRange.font.size = inRange.font.size
 
 
-MAX_X = 30
-MAX_Y = 850
-
-
-def main():
-    # app = xw.App(visible=False)
-    # sBook = xw.Book('samp.xlsx')
-    # oBook = xw.Book()
-    #
-    # # r = sBook.sheets[0].range((1, 1), (1, 3)).formula
-    # inSht = sBook.sheets[0]
-    # oSht = oBook.sheets[0]
-    #
-    # oSht.range((1,1),(20,20)).formula = inSht.range((1,1),(20,20)).formula
-    #
-    # oBook.save()
-    # app.kill()
-    #
-    # return
+def cleanCopyExcel(fileName='input.xlsx', MAX_X=50, MAX_Y=1000):
     app = xw.App(visible=False)
-    book = xw.Book('input.xlsx')
+    book = xw.Book(fileName)
     oBook = xw.Book()
 
     for inSh in book.sheets:
@@ -82,6 +66,23 @@ def main():
 
     oBook.save()
     app.kill()
+
+
+def main():
+    kwargs = {}
+    args = list(sys.argv)
+    com = ''
+    for arg in args:
+        if com == '-in' or com == '-i':
+            kwargs['fileName'] = arg
+        elif com == '-x' or com == '-X':
+            kwargs['MAX_X'] = int(arg)
+        elif com == '-y' or com == '-Y':
+            kwargs['MAX_Y'] = int(arg)
+        com = arg
+
+    cleanCopyExcel(**kwargs)
+
 
 if __name__ == '__main__':
     main()
