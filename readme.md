@@ -1,3 +1,19 @@
+#### It can be used when your excel file is bloating so the file demands exorbitant storage space and works improperly or slow.   
+#### Program makes new excel file and copy mandatory data like text.   
+##### See below for more detail about what is cloned
+1. text (including formula)
+2. cell width&height
+3. font
+    1. font size
+    2. font color
+    3. cell bg color
+    4. bold, italic
+    5. ~~font type is excluded~~
+   
+##### To use this program please check out release page.
+##### https://github.com/jong950715/excelCleanClone/releases
+
+---
 #### 엑셀이 부풀어서 용량이 과도하고 속도가 느릴 때, 사용하는 툴 입니다.
 #### 새로운 엑셀파일을 만들어서 필요한 내용만 복사합니다.
 ##### 복사내역은 아래와 같습니다.
@@ -10,7 +26,11 @@
     4. 볼드, 이태릭   
     5. ~~폰트 종류 제외됨.~~
  
- ##### 사용방법은 아래와 같습니다. (파이썬 설치 되어있다는 가정)
+#### 릴리즈 페이지를 참고해주세요.
+##### https://github.com/jong950715/excelCleanClone/releases
+ 
+
+##### 사용방법은 아래와 같습니다. (파이썬 설치 되어있다는 가정)
 
 ##### 1. 가상환경 만들기
 ```
