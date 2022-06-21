@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/exelCleanClone.iml" filepath="$PROJECT_DIR$/.idea/exelCleanClone.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/excelCleanClone.iml" filepath="$PROJECT_DIR$/.idea/excelCleanClone.iml" />
     </modules>
   </component>
 </project>
